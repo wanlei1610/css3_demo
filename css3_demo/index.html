@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>根据设备跳转</title>
+</head>
+<body>
+    <script type="text/javascript">
+     (function () { 
+            //判断是手机还是pc
+        function browserRedirect() {
+                var sUserAgent = navigator.userAgent.toLowerCase();
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            /*根据终端类型显示不同片段*/
+            displayPage();
+            function displayPage() {
+                if (browserRedirect()) { //手机访问
+                    window.location.href="http://m.jd100.com/user/blankB";
+                } else {
+                    window.location.href="http://www.jd100.com/zt/wangxiaozonghe3";
+                }
+            }
+
+      })();
+        
+    </script>
+</body>
+</html>
